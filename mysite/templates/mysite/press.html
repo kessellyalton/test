@@ -11,9 +11,13 @@
         {% if featured_post %}
         <div class="d-flex align-items-center justify-content-between mb-4">
             <h6 class="mb-0 text-uppercase text-primary">Featured Story</h6>
-            <a class="text-arrow-icon small text-decoration-none fw-bold" href="{% url 'category_articles' featured_post.category %}">
-                More headlines <i class="ms-1" data-feather="arrow-right"></i>
-            </a>
+            {% if featured_post.category and featured_post.category.slug %}
+                <a class="text-arrow-icon small text-decoration-none fw-bold" href="{% url 'category_articles' featured_post.category.slug %}">
+                    More headlines <i class="ms-1" data-feather="arrow-right"></i>
+                </a>
+            {% else %}
+                <span class="text-muted small">Category unavailable</span>
+            {% endif %}
         </div>
         <div class="card mb-4 shadow-lg border-0 overflow-hidden rounded-4">
             <div class="row g-0">
@@ -69,7 +73,11 @@
                 </div>
                 {% endfor %}
             </div>
-            <a href="{% url 'category_articles' section %}" class="text-arrow-icon small mt-2 d-block text-decoration-none fw-bold text-primary">View more <i data-feather="arrow-right"></i></a>
+            {% if section %}
+                <a href="{% url 'category_articles' section %}" class="text-arrow-icon small mt-2 d-block text-decoration-none fw-bold text-primary">View more <i data-feather="arrow-right"></i></a>
+            {% else %}
+                <span class="text-muted small">More articles unavailable</span>
+            {% endif %}
         </div>
         {% endfor %}
     </div>

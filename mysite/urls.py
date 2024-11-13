@@ -78,4 +78,9 @@ urlpatterns = [
     path('buy/category/<int:category_id>/', views.category_items, name='item_list_by_category'),
     path('documents/', views.pdf_list, name='pdf_list'),  # PDF list page
     path('documents/download/<int:pk>/', views.download_pdf, name='download_pdf'),
+    path('category/<str:category>/', views.category_articles, name='category_articles'),
+    path('article/<int:pk>/', views.article_detail, name='article_detail'),
+    
+    
+    
 ]
