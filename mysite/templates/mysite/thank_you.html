@@ -1,0 +1,18 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Thank You - InnoHub Liberia{% endblock %}
+
+{% block content %}
+
+<section id="thank-you" class="thank-you">
+
+  <div class="card" style="width: 90%;height: 100vh;text-align: center">
+
+  <img src="{% static 'img/hub.png' %}" class="card-img-top" alt="image">
+  <div class="card-body">
+    <a href="{% url 'home' %}" class="btn btn-primary">Visit our News and Event Page</a>
+  </div>
+</div>
+</section>
+{% endblock %}

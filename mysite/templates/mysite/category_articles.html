@@ -1,0 +1,35 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Article Category - InnoHub Liberia{% endblock %}
+
+{% block content %}
+<section style="background-color: #f9f9f9; padding: 50px 0;">
+    <!-- Title with extra space above -->
+    <div style="text-align: center; margin-top: 80px; margin-bottom: 40px;">
+        <h2 style="font-size: 2.5rem; font-weight: bold; color: #007bff;">Articles in {{ category_name }}</h2>
+    </div>
+
+    <!-- Article Cards -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 0 20px;">
+        {% for article in page_obj %}
+        <div style="background-color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px; width: 300px; padding: 20px; transition: transform 0.3s;">
+            <h3 style="font-size: 1.5rem; font-weight: bold; color: #333; margin-bottom: 15px;">{{ article.title }}</h3>
+            <p style="color: #666; font-size: 1rem; line-height: 1.6;">{{ article.content|striptags|truncatewords:20 }}</p>
+            <a href="{% url 'article_detail' article.id %}" style="display: inline-block; margin-top: 15px; color: white; background-color: #007bff; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">Read more</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+    <div style="text-align: center; margin-top: 40px;">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}" style="color: #007bff; font-weight: bold; text-decoration: none; margin-right: 10px;">&laquo; Previous</a>
+        {% endif %}
+        <span style="color: #555; font-size: 1rem;">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" style="color: #007bff; font-weight: bold; text-decoration: none; margin-left: 10px;">Next &raquo;</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

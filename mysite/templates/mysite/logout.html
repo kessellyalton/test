@@ -1,0 +1,14 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+<!-- templates/mysite/logout.html -->
+
+{% extends "mysite/base.html" %}
+
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>You have been logged out.</h2>
+    <p><a href="{% url 'login' %}">Log in again</a> or go back to the <a href="{% url 'home' %}">home page</a>.</p>
+</div>
+{% endblock %}

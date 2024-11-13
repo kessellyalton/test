@@ -1,0 +1,63 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Portfolio Details - InnoHub Liberia{% endblock %}
+
+{% block content %}
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Portfolio Details</li>
+        </ol>
+        <h2>Portfolio Details</h2>
+      </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+        <div class="row gy-4">
+
+          <!-- Portfolio Images Slider -->
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+                {% if portfolio.image %}
+                  <div class="swiper-slide">
+                    <img src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}">
+                  </div>
+                {% endif %}
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <!-- Portfolio Information -->
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project Information</h3>
+              <ul>
+                <li><strong>Category</strong>: {{ portfolio.category }}</li>
+                <li><strong>Client</strong>: {{ portfolio.client }}</li>
+                <li><strong>Project Date</strong>: {{ portfolio.project_date }}</li>
+                <li><strong>Project URL</strong>: <a href="{{ portfolio.project_url }}" target="_blank" rel="noopener noreferrer">{{ portfolio.project_url }}</a></li>
+
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>{{ portfolio.title }}</h2>
+              <p>{{ portfolio.description|safe }}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- End Portfolio Details Section -->
+
+{% endblock %}
+

@@ -1,0 +1,91 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Buy and Sell{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 60px; max-width: 1200px;">
+    <!-- Page Header -->
+    <h1 class="mb-5 text-center" style="font-size: 2.5rem; font-weight: 700; color: #2C3E50;">Explore the Marketplace</h1>
+
+    <!-- Items Section -->
+    <div class="row">
+        {% for item in items %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; overflow: hidden; transition: transform 0.3s;">
+                    <img src="{{ item.image.url|default_if_none:'/static/default-image.jpg' }}" alt="{{ item.title }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title" style="font-weight: 600; color: #34495E;">{{ item.title }}</h5>
+                        <!-- Render description as safe HTML -->
+                        <p class="card-text text-muted" style="font-size: 0.9rem;">{{ item.description|truncatewords:15|safe }}</p>
+                        <p style="font-size: 1rem; font-weight: bold; color: #E74C3C;">${{ item.price }}</p>
+                        <a href="{% url 'item_detail' item.id %}" class="btn btn-primary mt-auto" style="border-radius: 50px; font-weight: 600; background-color: #3498DB; border: none; transition: background-color 0.3s;">
+                            View Item
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-center w-100">No items available at the moment.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Categories Section -->
+    <h2 id="categories" class="mb-5 mt-5 text-center" style="font-size: 2rem; font-weight: bold; color: #2C3E50;">Browse by Category</h2>
+    <div class="row">
+        {% for category in categories %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <a href="{% url 'item_list_by_category' category.id %}" class="card text-center border-0 shadow-sm lift" style="border-radius: 15px; overflow: hidden; transition: transform 0.3s;">
+                    <div class="card-body" style="padding: 20px; background-color: #F8F9FA;">
+                        <!-- Category Icon Logic with Emojis -->
+                        <div class="icon-stack icon-stack-xl text-white mb-3" style="width: 60px; height: 60px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background-color: #3498DB;">
+                            {% if category.name == "Apparel and Accessories" %}
+                                <span style="font-size: 1.5rem;">👗</span>
+                            {% elif category.name == "Electronics and Gadgets" %}
+                                <span style="font-size: 1.5rem;">🔌</span>
+                            {% elif category.name == "Beauty and Personal Care" %}
+                                <span style="font-size: 1.5rem;">💄</span>
+                            {% elif category.name == "Home and Furniture" %}
+                                <span style="font-size: 1.5rem;">🛋️</span>
+                            {% elif category.name == "Sports and Outdoors" %}
+                                <span style="font-size: 1.5rem;">🏀</span>
+                            {% elif category.name == "Toys and Games" %}
+                                <span style="font-size: 1.5rem;">🧸</span>
+                            {% elif category.name == "Books, Stationery, and Media" %}
+                                <span style="font-size: 1.5rem;">📚</span>
+                            {% elif category.name == "Groceries and Food" %}
+                                <span style="font-size: 1.5rem;">🍎</span>
+                            {% elif category.name == "Automotive" %}
+                                <span style="font-size: 1.5rem;">🚗</span>
+                            {% elif category.name == "Pharmacy and Health" %}
+                                <span style="font-size: 1.5rem;">💊</span>
+                            {% elif category.name == "Pets" %}
+                                <span style="font-size: 1.5rem;">🐾</span>
+                            {% elif category.name == "Gifts and Occasions" %}
+                                <span style="font-size: 1.5rem;">🎁</span>
+                            {% elif category.name == "DIY and Hardware" %}
+                                <span style="font-size: 1.5rem;">🔧</span>
+                            {% elif category.name == "Baby and Kids" %}
+                                <span style="font-size: 1.5rem;">👶</span>
+                            {% elif category.name == "Travel and Outdoor" %}
+                                <span style="font-size: 1.5rem;">🌍</span>
+                            {% elif category.name == "Art and Collectibles" %}
+                                <span style="font-size: 1.5rem;">🎨</span>
+                            {% elif category.name == "Luxury Items" %}
+                                <span style="font-size: 1.5rem;">💎</span>
+                            {% elif category.name == "Eco-Friendly and Sustainable Products" %}
+                                <span style="font-size: 1.5rem;">🌱</span>
+                            {% else %}
+                                <span style="font-size: 1.5rem;">🛍️</span> <!-- Default icon -->
+                            {% endif %}
+                        </div>
+                        <h5 class="card-title" style="font-size: 1.1rem; font-weight: bold; color: #34495E;">{{ category.name }}</h5>
+                    </div>
+                </a>
+            </div>
+        {% empty %}
+            <p class="text-center w-100">No categories found.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

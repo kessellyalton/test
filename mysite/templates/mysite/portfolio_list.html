@@ -1,0 +1,144 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Portfolio - InnoHub Liberia{% endblock %}
+
+{% block content %}
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title text-center">
+      <h2>Portfolio</h2>
+      <p>Our portfolio showcases a diverse range of projects that reflect our expertise and commitment to impactful, high-quality solutions.</p>
+    </div>
+
+    <!-- Enhanced Filter Section -->
+    <div id="portfolio-filters" class="d-flex justify-content-center flex-wrap mb-4" data-aos="fade-up" data-aos-delay="100">
+      <button data-filter="*" class="filter-btn filter-active">All</button>
+      <button data-filter=".filter-research" class="filter-btn">Research & Consultancy</button>
+      <button data-filter=".filter-data" class="filter-btn">Data Analytics and Reporting</button>
+      <button data-filter=".filter-infrastructure" class="filter-btn">Data Infrastructure Development</button>
+      <button data-filter=".filter-strategic" class="filter-btn">Strategic Planning</button>
+      <button data-filter=".filter-stem" class="filter-btn">STEM Education Promotion</button>
+      <button data-filter=".filter-training" class="filter-btn">Training & Capacity Building</button>
+      <button data-filter=".filter-tech" class="filter-btn">Tech Import & Supply</button>
+      <button data-filter=".filter-software" class="filter-btn">Customized Software Solutions</button>
+    </div>
+
+    <!-- Portfolio Items -->
+    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+      {% for portfolio in portfolios %}
+      <div class="col-lg-4 col-md-6 portfolio-item filter-{{ portfolio.category|slugify }}">
+        <div class="portfolio-card shadow-sm">
+          <div class="portfolio-img">
+            <img src="{{ portfolio.image.url }}" class="img-fluid" alt="{{ portfolio.title }}">
+          </div>
+          <div class="portfolio-info p-3">
+            <h4>{{ portfolio.title }}</h4>
+            <p class="text-muted">{{ portfolio.category }}</p>
+            <div class="portfolio-links">
+              <a href="{{ portfolio.image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ portfolio.title }}">
+                <i class="bx bx-plus"></i>
+              </a>
+              <a href="{% url 'portfolio-detail' portfolio.pk %}" class="details-link" title="More Details">
+                <i class="bx bx-link"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+<!-- End Portfolio Section -->
+
+<style>
+  /* Styling for filter buttons */
+  .filter-btn {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .filter-btn:hover, .filter-btn.filter-active {
+    background-color: #333;
+    color: #fff;
+  }
+
+  /* Portfolio card styling */
+  .portfolio-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .portfolio-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .portfolio-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .portfolio-info h4 {
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+
+  .portfolio-info p {
+    font-size: 0.9em;
+  }
+
+  .portfolio-links a {
+    color: #333;
+    font-size: 1.2em;
+    margin-right: 8px;
+    transition: color 0.3s ease;
+  }
+
+  .portfolio-links a:hover {
+    color: #007bff;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const filterButtons = document.querySelectorAll("#portfolio-filters .filter-btn");
+    const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", function () {
+        // Remove 'filter-active' class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove("filter-active"));
+        // Add 'filter-active' class to clicked button
+        button.classList.add("filter-active");
+
+        const filterValue = button.getAttribute("data-filter");
+
+        // Show/Hide portfolio items based on filter
+        portfolioItems.forEach(item => {
+          if (filterValue === "*" || item.classList.contains(filterValue.substring(1))) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    });
+  });
+</script>
+
+{% endblock %}

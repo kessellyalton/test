@@ -1,0 +1,128 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Find Local Businesses{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<header class="page-header-ui page-header-ui-dark bg-img-cover overlay" style="background-image: url('https://source.unsplash.com/hrlvr2ZlUNk/1500x700')">
+    <div class="page-header-ui-content position-relative">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-xl-8 col-lg-10 text-center">
+                    <h1 class="page-header-ui-title">Find the best businesses in town</h1>
+                    <p class="page-header-ui-text mb-5">Search for restaurants, contractors, and other local businesses in your area to find out which ones are the best!</p>
+                </div>
+            </div>
+            <div class="row gx-5 justify-content-center">
+                <div class="col-xl-6 col-lg-8 text-center">
+                    <form action="{% url 'business_search' %}" method="GET" class="row row-cols-1 row-cols-md-auto g-3 align-items-center">
+                        <div class="col flex-grow-1">
+                            <label class="sr-only" for="searchQuery">Find local businesses...</label>
+                            <input class="form-control form-control-solid" id="searchQuery" name="query" type="text" placeholder="Find local businesses..." />
+                        </div>
+                        <div class="col"><button class="btn btn-teal fw-500" type="submit">Search</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="svg-border-angled text-light">
+        <!-- Angled SVG Border -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" fill="currentColor"><polygon points="0,100 100,0 100,100"></polygon></svg>
+    </div>
+</header>
+
+<!-- Browse Categories Section -->
+<section class="bg-light py-10">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6 text-center">
+                <div class="mb-5">
+                    <div class="text-xs text-uppercase-expanded text-primary mb-2">Browse Businesses</div>
+                    <p class="lead mb-0">Not sure what to search for? Browse some of the most popular categories.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            {% for category in categories %}
+            <div class="col-md-6 col-lg-4 col-xl-3 mb-5">
+                <a class="card lift" href="{% url 'category_detail' category.id %}">
+                    <img class="card-img-top" src="{{ category.image_url }}" alt="{{ category.name }}" />
+                    <div class="card-body text-center py-3">
+                        <h6 class="card-title mb-0">{{ category.name }}</h6>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="svg-border-angled text-white">
+        <!-- Angled SVG Border -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" fill="currentColor"><polygon points="0,100 100,0 100,100"></polygon></svg>
+    </div>
+</section>
+
+<!-- New Businesses Section -->
+<section class="bg-white pt-5 pb-10">
+    <div class="container px-5">
+        <div class="card mt-n15 mb-10 z-1">
+            <div class="card-body p-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6">
+                        <h4>Get the latest news</h4>
+                        <p class="lead text-gray-500 mb-0">Stay in the loop with the latest updates and features added to our application!</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group mb-2">
+                            <input class="form-control form-control-solid" type="email" placeholder="youremail@example.com" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                            <button class="btn btn-primary" id="button-addon2" type="button">Sign up</button>
+                        </div>
+                        <div class="small text-gray-500">You can unsubscribe at any time.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="mb-5 text-center">
+                    <div class="text-xs text-uppercase-expanded text-primary mb-2">New Businesses</div>
+                    <p class="lead mb-0">Here are some of the most popular new businesses in your area.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-5">
+            {% for business in businesses %}
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <a class="card lift" href="{% url 'business_detail' business.id %}">
+                    <img class="card-img-top" src="{{ business.image_url }}" alt="{{ business.name }}" />
+                    <div class="card-body text-center py-3">
+                        <h6 class="card-title mb-0">{{ business.name }}</h6>
+                        <div class="text-yellow">
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= business.rating %}
+                                    <i class="fas fa-star"></i>
+                                {% else %}
+                                    <i class="far fa-star"></i>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="small mb-2">({{ business.reviews_count }} Reviews)</div>
+                        <div class="small">{{ business.location }}</div>
+                    </div>
+                    <div class="card-footer text-center text-xs">
+                        <i class="fas fa-store-alt me-1"></i>
+                        Opened {{ business.opened_on|timesince }} ago
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="svg-border-angled text-dark">
+        <!-- Angled SVG Border -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" fill="currentColor"><polygon points="0,100 100,0 100,100"></polygon></svg>
+    </div>
+</section>
+{% endblock %}
+

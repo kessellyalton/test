@@ -1,0 +1,201 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}About Us - InnoHub LIBERIA{% endblock %}
+
+{% block content %}
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about py-5">
+    <div class="container" data-aos="fade-up">
+        <!-- Section Header -->
+        <div class="section-title text-center mb-5">
+            <h2 class="display-4 font-weight-bold" style="font-family: 'Comic Sans MS', sans-serif; color: #0056b3;">About InnoHub LIBERIA</h2>
+            <p class="lead text-muted" style="max-width: 800px; margin: 0 auto;">
+                InnoHub LIBERIA, also known as "The Hub," was founded to advance research, technology, and education through innovative solutions that meet the evolving needs of industries, educational institutions, and government bodies.
+            </p>
+        </div>
+
+        <!-- Carousel of Aims and Objectives with Cards -->
+        <div class="row">
+            <!-- Research and Consultancy Card -->
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 shadow-lg p-4 text-center" style="background-color: #f5faff;">
+                    <h3 class="font-weight-bold mb-3" style="font-family: 'Comic Sans MS', sans-serif; color: #003366;">
+                        Research and Consultancy 🔍
+                    </h3>
+                    <div id="researchCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p><span style="font-size: 1.5em;">📊</span> Conduct in-depth research to support educational and scientific progress.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span style="font-size: 1.5em;">🔍</span> Provide expert consultancy on innovative project implementation.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span style="font-size: 1.5em;">📝</span> Generate research reports that guide policy and decision-making.</p>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#researchCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#researchCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Analytics and Reporting Card -->
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 shadow-lg p-4 text-center" style="background-color: #f5faff;">
+                    <h3 class="font-weight-bold mb-3" style="font-family: 'Comic Sans MS', sans-serif; color: #003366;">
+                        Data Analytics and Reporting 📊
+                    </h3>
+                    <div id="analyticsCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p><span style="font-size: 1.5em;">📈</span> Offer predictive analysis to support strategic decisions.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span style="font-size: 1.5em;">📑</span> Deliver comprehensive reports for business insights.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span style="font-size: 1.5em;">📊</span> Utilize data visualization tools to illustrate key findings.</p>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#analyticsCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#analyticsCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Infrastructure Development Card -->
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 shadow-lg p-4 text-center" style="background-color: #f5faff;">
+                    <h3 class="font-weight-bold mb-3" style="font-family: 'Comic Sans MS', sans-serif; color: #003366;">
+                        Data Infrastructure Development 🛠️
+                    </h3>
+                    <div id="infrastructureCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p><span style="font-size: 1.5em;">⚙️</span> Build scalable and secure data infrastructure systems.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span style="font-size: 1.5em;">💾</span> Design custom databases to manage critical data efficiently.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span style="font-size: 1.5em;">🔧</span> Develop recommendation engines for personalized experiences.</p>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#infrastructureCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#infrastructureCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Aims and Objectives Cards -->
+        <div class="row">
+            <!-- Strategic Planning Card -->
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 shadow-lg p-4 text-center" style="background-color: #f5faff;">
+                    <h3 class="font-weight-bold mb-3" style="font-family: 'Comic Sans MS', sans-serif; color: #003366;">
+                        Strategic Planning 🎯
+                    </h3>
+                    <div id="planningCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p><span style="font-size: 1.5em;">📅</span> Formulate strategies for long-term growth and stability.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span style="font-size: 1.5em;">📋</span> Support organizations in setting achievable objectives.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span style="font-size: 1.5em;">🏆</span> Provide expert guidance for impactful planning and execution.</p>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#planningCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#planningCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEM Education Promotion Card -->
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 shadow-lg p-4 text-center" style="background-color: #f5faff;">
+                    <h3 class="font-weight-bold mb-3" style="font-family: 'Comic Sans MS', sans-serif; color: #003366;">
+                        STEM Education Promotion 🚀
+                    </h3>
+                    <div id="stemCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p><span style="font-size: 1.5em;">🔬</span> Promote science and technology in local communities.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span style="font-size: 1.5em;">📐</span> Host STEM workshops and events for students.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span style="font-size: 1.5em;">🧑‍🎓</span> Partner with schools to enhance STEM curriculum.</p>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#stemCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#stemCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customized Software Solutions Card -->
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 shadow-lg p-4 text-center" style="background-color: #f5faff;">
+                    <h3 class="font-weight-bold mb-3" style="font-family: 'Comic Sans MS', sans-serif; color: #003366;">
+                        Customized Software Solutions 💻
+                    </h3>
+                    <div id="softwareCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p><span style="font-size: 1.5em;">🖥️</span> Design software that aligns with client objectives.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span style="font-size: 1.5em;">📂</span> Develop custom databases for data management.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <p><span style="font-size: 1.5em;">🔒</span> Prioritize data security in all applications.</p>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#softwareCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#softwareCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center mt-5">
+            <a href="{% url 'contact' %}" class="btn btn-primary btn-lg shadow-sm" style="background-color: #0056b3; border-color: #0056b3;">
+                Connect With Us
+            </a>
+        </div>
+    </div>
+</section>
+<!-- End About Us Section -->
+{% endblock %}

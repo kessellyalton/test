@@ -1,0 +1,98 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Services - InnoHub Liberia{% endblock %}
+
+{% block content %}
+<!-- ======= Services Section ======= -->
+<section id="services" class="services section-bg">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Services</h2>
+      <p>InnoHub Liberia is committed to delivering innovative, all-encompassing solutions designed to adapt to the evolving needs of our clients. Our goals shape our mission and highlight our unwavering dedication to excellence.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box">
+          <div class="icon"><i class="bx bxl-flask"></i></div>
+          <h4><a href="#">Research and Consultancy</a></h4>
+          <p>Engage in cutting-edge research across educational and scientific domains to foster new insights and innovative solutions.</p>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-chart"></i></div>
+          <h4><a href="#">Data Analytics and Reporting</a></h4>
+          <p>Perform in-depth data analysis, statistical modeling, predictive analysis, and customized reporting for informed decision-making.</p>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-server"></i></div>
+          <h4><a href="#">Data Infrastructure Development</a></h4>
+          <p>Design and implement robust data systems and recommendation engines to support efficient data management and analysis.</p>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-compass"></i></div>
+          <h4><a href="#">Strategic Planning</a></h4>
+          <p>Provide strategic planning and implementation services for educational and scientific institutions to drive growth and effectiveness.</p>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="500">
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-atom"></i></div>
+          <h4><a href="#">STEM Education Promotion</a></h4>
+          <p>Develop and promote Science, Technology, Engineering, and Mathematics programs to prepare future leaders in these fields.</p>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="600">
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-chalkboard"></i></div>
+          <h4><a href="#">Training and Capacity Building</a></h4>
+          <p>Offer workshops, training, and mentorship for educators and students, equipping them with essential skills for success.</p>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="700">
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-import"></i></div>
+          <h4><a href="#">Technology Import and Supply</a></h4>
+          <p>Import and supply essential technology products and systems to support institutional and business technology needs.</p>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="800">
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-code"></i></div>
+          <h4><a href="#">Customized Software Solutions</a></h4>
+          <p>Create tailored software solutions for businesses, institutions, and government agencies to meet their unique needs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End Services Section -->
+
+<!-- ======= Call to Action Section ======= -->
+<section id="cta" class="cta">
+  <div class="container" data-aos="zoom-in">
+    <div class="row">
+      <div class="col-lg-9 text-center text-lg-start">
+        <h3>Partner with Us</h3>
+        <p>Let us work together to drive impactful results through our specialized services. We bring innovation, strategy, and dedication to every project. Contact us to explore how we can collaborate.</p>
+      </div>
+      <div class="col-lg-3 cta-btn-container text-center">
+        <a class="cta-btn align-middle" href="{% url 'contact' %}">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section><!-- End Call to Action Section -->
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Team - InnoHub Liberia{% endblock %}
+
+{% block content %}
+<!-- Include Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- ======= Team Section ======= -->
+<section id="team" class="team section-bg py-5" style="background-color: #f7f8fa;">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title text-center mb-5">
+            <h2 style="font-family: 'Poppins', sans-serif; font-weight: 700; color: #1a1a2e;">Our Team</h2>
+            <p style="color: #4a4a6a; font-size: 1.1rem;">
+                Our team is comprised of talented and dedicated professionals committed to delivering impactful solutions.
+            </p>
+        </div>
+
+        <div class="row">
+            {% for member in team_members %}
+            <div class="col-lg-6 mb-4" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+                <div class="card shadow-sm border-0" style="background-color: #ffffff; border-radius: 12px;">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-md-4 text-center p-4">
+                            <img src="{{ member.image.url }}" class="img-fluid rounded-circle" alt="{{ member.name }}" style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #ffbc42;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-family: 'Poppins', sans-serif; font-weight: 600; color: #1a1a2e;">{{ member.name }}</h5>
+                                <h6 class="card-subtitle mb-2" style="color: #8a8aab; font-size: 1rem;">{{ member.title }}</h6>
+                                <p class="card-text" style="color: #333; font-size: 0.95rem;">
+                                    {{ member.bio }}
+                                </p>
+                                <div class="social mt-3">
+                                    {% if member.twitter_url %}
+                                    <a href="{{ member.twitter_url }}" class="btn btn-dark btn-sm rounded-circle mr-2" target="_blank" style="width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; background-color: #1a1a2e; color: #ffbc42;">
+                                        <i class="ri-twitter-fill"></i>
+                                    </a>
+                                    {% endif %}
+                                    {% if member.facebook_url %}
+                                    <a href="{{ member.facebook_url }}" class="btn btn-dark btn-sm rounded-circle mr-2" target="_blank" style="width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; background-color: #1a1a2e; color: #ffbc42;">
+                                        <i class="ri-facebook-fill"></i>
+                                    </a>
+                                    {% endif %}
+                                    {% if member.instagram_url %}
+                                    <a href="{{ member.instagram_url }}" class="btn btn-dark btn-sm rounded-circle mr-2" target="_blank" style="width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; background-color: #1a1a2e; color: #ffbc42;">
+                                        <i class="ri-instagram-fill"></i>
+                                    </a>
+                                    {% endif %}
+                                    {% if member.linkedin_url %}
+                                    <a href="{{ member.linkedin_url }}" class="btn btn-dark btn-sm rounded-circle mr-2" target="_blank" style="width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; background-color: #1a1a2e; color: #ffbc42;">
+                                        <i class="ri-linkedin-box-fill"></i>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- End Team Section -->
+
+<!-- Include Bootstrap and any required icon libraries -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/2.5.0/remixicon.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+{% endblock %}

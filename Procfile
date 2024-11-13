@@ -1,0 +1,1 @@
+web: gunicorn 'innohub_website.wsgi'

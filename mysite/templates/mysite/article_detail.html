@@ -1,0 +1,30 @@
+{% extends "mysite/base.html" %}
+{% block title %}{{ article.title }} - InnoHub Liberia{% endblock %}
+
+{% block content %}
+<section style="padding: 80px 0; background-color: #f9f9f9;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+        <!-- Article Title with larger top margin -->
+        <h1 style="font-size: 2.5rem; font-weight: bold; color: #007bff; text-align: center; margin-bottom: 20px;">
+            {{ article.title }}
+        </h1>
+
+        <!-- Author and Date Info -->
+        <div style="text-align: center; color: #666; font-size: 1rem; margin-bottom: 30px;">
+            By <strong>{{ article.author }}</strong> | {{ article.date_posted }}
+        </div>
+
+        <!-- Article Image (if available) -->
+        {% if article.image %}
+        <div style="text-align: center; margin-bottom: 30px;">
+            <img src="{{ article.image.url }}" alt="{{ article.title }}" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+        </div>
+        {% endif %}
+
+        <!-- Article Content -->
+        <div style="font-size: 1.2rem; line-height: 1.8; color: #333;">
+            {{ article.content|safe }}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Home - InnoHub Liberia{% endblock %}
+
+{% block content %}
+<header class="text-center my-5">
+    <h1>Empowering Liberia's Future Through Innovation</h1>
+    <p>InnoHub Liberia - dedicated to fostering innovation through education, research, and technology solutions.</p>
+    <a href="#" class="btn btn-primary">Learn More</a>
+</header>
+
+<section class="features text-center my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="icon mb-3">
+                <img src="{% static 'img/logo.png' %}" alt="Home Icon">
+            </div>
+            <h3>Learn Us</h3>
+            <p>Learn about our mission and goals.</p>
+        </div>
+        <div class="col-md-4">
+            <div class="icon mb-3">
+                <img src="{% static 'img/about-icon.png' %}" alt="About Icon">
+            </div>
+            <h3>About Us</h3>
+            <p>Explore our vision for Liberia's future.</p>
+        </div>
+        <div class="col-md-4">
+            <div class="icon mb-3">
+                <img src="{% static 'img/projects-icon.png' %}" alt="Projects Icon">
+            </div>
+            <h3>Projects & Events</h3>
+            <p>Get involved in our projects and initiatives.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="text-center py-4">
+    <p>&copy; {{ year }} InnoHub Liberia. All Rights Reserved.</p>
+</footer>
+{% endblock %}

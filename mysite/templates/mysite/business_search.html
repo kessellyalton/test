@@ -1,0 +1,38 @@
+<!-- business_search.html -->
+{% extends "mysite/base.html" %}
+{% block title %}Search for Local Places{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="display-4 text-center">Search for Local Places</h1>
+    <form method="GET" action="{% url 'business_search' %}" class="row g-3 mb-5">
+        <div class="col-md-6">
+            <input type="text" name="query" class="form-control" placeholder="Search for schools, shops, etc." required>
+        </div>
+        <div class="col-md-6">
+            <input type="text" name="location" class="form-control" placeholder="Enter location (e.g., city name)">
+        </div>
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    {% if results %}
+    <div class="row">
+        {% for place in results %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ place.name }}</h5>
+                    <p class="card-text">{{ place.location.address }}</p>
+                    <p class="card-text"><strong>Category:</strong> {{ place.categories.0.name }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No results found.</p>
+    {% endif %}
+</div>
+{% endblock %}

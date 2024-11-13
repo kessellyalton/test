@@ -1,0 +1,20 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Buy and Sell{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 60px;"> <!-- Inline CSS for extra space above -->
+    <h2 style="margin-top: 20px;">{{ item.title }}</h2>
+    <img src="{{ item.image.url|default:'/static/default-image.jpg' }}" alt="{{ item.title }}" class="img-fluid" />
+    <p><strong>Price:</strong> ${{ item.price }}</p>
+    <p><strong>Location:</strong> {{ item.location }}</p>
+    <p><strong>Posted:</strong> {{ item.posted_on|timesince }} ago</p>
+    <p>{{ item.description }}</p>
+    <p>
+        To buy <button type="button" class="btn btn-success">
+            <a href="{% url 'contact' %}" style="color: white; text-decoration: none;">contact</a>
+        </button>
+    </p>
+</div>
+{% endblock %}

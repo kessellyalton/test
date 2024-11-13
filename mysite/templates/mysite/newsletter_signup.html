@@ -1,0 +1,35 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Newsletter Signup - InnoHub Liberia{% endblock %}
+
+{% block content %}
+<div class="container mt-10">
+
+
+  {% if subscribed %}
+    <div class="alert alert-success text-center" role="alert">
+      Thank you for subscribing to our newsletter!
+    </div>
+  {% endif %}
+
+  {% if request.user.is_authenticated and request.user.is_superuser %}
+    {% if email_list %}
+      <h3 class="mt-4">List of Subscribed Emails</h3>
+      <ul class="list-group mt-3">
+        {% for email in email_list %}
+          <li class="list-group-item">{{ email }}</li>
+        {% empty %}
+
+        {% endfor %}
+      </ul>
+    {% else %}
+
+    {% endif %}
+  {% endif %}
+
+  <a href="{% url 'home' %}" class="btn btn-primary mt-4">Return to Home</a>
+</div>
+
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+{% endblock %}

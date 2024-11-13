@@ -1,0 +1,41 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Blog - InnoHub Liberia{% endblock %}
+
+{% block content %}
+    <div id="layoutDefault">
+        <div id="layoutDefault_content">
+            <!-- Page Header -->
+            <section class="bg-light py-10" style="margin-top: 80px;">
+                <div class="container px-5">
+                    <div class="row gx-5">
+                        {% for post in posts %}
+                            <div class="col-md-6 col-xl-4 mb-5">
+                                <a class="card post-preview lift h-100" href="{% url 'blog-detail' post.pk %}">
+                                    <img class="card-img-top" src="{% if post.image %}{{ post.image.url }}{% else %}https://source.unsplash.com/660x360/?blog,{{ post.title }}{% endif %}" alt="{{ post.title }}" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ post.title }}</h5>
+                                        <p class="card-text">{{ post.content|safe|truncatewords:10 }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        {% empty %}
+                            <p>No posts to display.</p>
+                        {% endfor %}
+                    </div>
+                    <!-- Pagination Controls -->
+                    <div class="pagination">
+                        {% if posts.has_previous %}
+                            <a href="?page={{ posts.previous_page_number }}">Previous</a>
+                        {% endif %}
+                        <span>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+                        {% if posts.has_next %}
+                            <a href="?page={{ posts.next_page_number }}">Next</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}

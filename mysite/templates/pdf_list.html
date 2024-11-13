@@ -1,0 +1,20 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Important Documents - InnoHub Liberia{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Important Documents</h1>
+    <p>Here you can easily download my theses, lectures, notes, and other important documents.</p>
+    <ul class="list-group mt-4">
+        {% for pdf in pdfs %}
+            <li class="list-group-item">
+                <a href="{% url 'download_pdf' pdf.pk %}" class="text-primary">{{ pdf.title }}</a>
+            </li>
+        {% empty %}
+            <p class="text-muted">No documents available for download at this time.</p>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,148 @@
+{% extends "mysite/base.html" %}
+{% load static %}
+
+{% block title %}Learn More - The Hub{% endblock %}
+
+{% block content %}
+<!-- ======= Learn More Section ======= -->
+<section id="learn-more" class="learn-more">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+            <h2>Our Mission and Goals</h2>
+            <p>At The Hub, we strive to be leaders in research, data infrastructure, educational technology, and STEM advocacy. Our team works closely with institutions, businesses, and individuals to deliver innovative solutions that drive real-world impact.</p>
+        </div>
+
+        <!-- Objectives Section with Bootstrap Icons and Illustrative Images -->
+        <div class="row content">
+            <div class="col-lg-12 text-center mb-4">
+                <h3 class="text-primary">Our Core Objectives and Services</h3>
+                <p>We are dedicated to supporting our clients in education, science, and technology through a comprehensive suite of services:</p>
+            </div>
+
+            <!-- Research and Consultancy -->
+            <div class="col-lg-6 mb-5">
+                <div class="objective-item">
+                    <h4><i class="bi bi-journal-text text-primary me-2"></i> Research and Consultancy</h4>
+                    <!-- <img src="{% static 'assets/img/illustrations/programming.jpg' %}" alt="Research Illustration" class="img-fluid rounded mb-3">-->
+                    <p>We conduct pioneering research across diverse fields, focusing on education, the sciences, and emerging technologies. Our consultancy services are grounded in data-driven insights, enabling us to advise organizations with precision and clarity.</p>
+                    <ul>
+                        <li><i class="bi bi-check-circle text-success"></i> Market analysis and trend forecasting</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Policy advisory for educational and scientific initiatives</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Research in cutting-edge technology applications</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Data Analytics and Reporting -->
+            <div class="col-lg-6 mb-5">
+                <div class="objective-item">
+                    <h4><i class="bi bi-bar-chart-line text-primary me-2"></i> Data Analytics and Reporting</h4>
+                   <!--    <img src="{% static 'assets/img/illustrations/data_analytics.png' %}" alt="Data Analytics Illustration" class="img-fluid rounded mb-3">-->
+                    <p>Our data analytics team specializes in transforming complex data into actionable insights. By employing advanced statistical modeling and visualization, we enable organizations to make better predictions and achieve their goals.</p>
+                    <ul>
+                        <li><i class="bi bi-check-circle text-success"></i> Descriptive and predictive data analysis</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Interactive and detailed data reporting</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Insights for targeted strategies</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Data Infrastructure Development -->
+            <div class="col-lg-6 mb-5">
+                <div class="objective-item">
+                    <h4><i class="bi bi-hdd-stack text-primary me-2"></i> Data Infrastructure Development</h4>
+                   <!--   <img src="{% static 'assets/img/illustrations/infrastructure.webp' %}" alt="Infrastructure Illustration" class="img-fluid rounded mb-3">-->
+                    <p>We assist organizations in creating customized data pipelines and systems that are scalable and secure. Our solutions enhance data management, processing, and accessibility.</p>
+                    <ul>
+                        <li><i class="bi bi-check-circle text-success"></i> Scalable databases and cloud storage solutions</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Custom recommendation engines</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Data security and compliance management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Strategic Planning -->
+            <div class="col-lg-6 mb-5">
+                <div class="objective-item">
+                    <h4><i class="bi bi-diagram-3 text-primary me-2"></i> Strategic Planning</h4>
+                    <img src="{% static 'assets/img/illustrations/strategic_planning.png' %}" alt="Strategic Planning Illustration" class="img-fluid rounded mb-3">
+                    <p>We partner with institutions to create actionable, long-term strategies. Our approach combines educational frameworks with a commitment to measurable outcomes.</p>
+                    <ul>
+                        <li><i class="bi bi-check-circle text-success"></i> Comprehensive planning for institutions</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Implementation and assessment of initiatives</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Roadmaps for innovation and success</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- STEM Education Promotion -->
+            <div class="col-lg-6 mb-5">
+                <div class="objective-item">
+                    <h4><i class="bi bi-easel text-primary me-2"></i> STEM Education Promotion</h4>
+                    <img src="{% static 'assets/img/illustrations/stem_education.png' %}" alt="STEM Education Illustration" class="img-fluid rounded mb-3">
+                    <p>We are passionate about fostering STEM education through workshops, outreach programs, and resources.</p>
+                    <ul>
+                        <li><i class="bi bi-check-circle text-success"></i> Outreach programs and community engagement</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Curriculum support for educators</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Hands-on STEM workshops and resources</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Training and Capacity Building -->
+            <div class="col-lg-6 mb-5">
+                <div class="objective-item">
+                    <h4><i class="bi bi-people text-primary me-2"></i> Training and Capacity Building</h4>
+                    <img src="{% static 'assets/img/illustrations/training.png' %}" alt="Training Illustration" class="img-fluid rounded mb-3">
+                    <p>We empower educators, students, and professionals through training and capacity-building programs.</p>
+                    <ul>
+                        <li><i class="bi bi-check-circle text-success"></i> Customized training for institutions</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Mentorship programs for students and professionals</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Practical, hands-on workshops</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Technology Import and Supply -->
+            <div class="col-lg-6 mb-5">
+                <div class="objective-item">
+                    <h4><i class="bi bi-gear text-primary me-2"></i> Technology Import and Supply</h4>
+                    <img src="{% static 'assets/img/illustrations/technology_supply.png' %}" alt="Technology Supply Illustration" class="img-fluid rounded mb-3">
+                    <p>We supply cutting-edge technology products to support our clients' operations.</p>
+                    <ul>
+                        <li><i class="bi bi-check-circle text-success"></i> Importing technology products and systems</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Comprehensive supply chain for tech equipment</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Customer support and training for technology use</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Customized Software Solutions -->
+            <div class="col-lg-6 mb-5">
+                <div class="objective-item">
+                    <h4><i class="bi bi-code-square text-primary me-2"></i> Customized Software Solutions</h4>
+                    <img src="{% static 'assets/img/illustrations/software_development.png' %}" alt="Software Development Illustration" class="img-fluid rounded mb-3">
+                    <p>Our team develops bespoke software and systems tailored to meet clients’ needs, enhancing productivity and efficiency.</p>
+                    <ul>
+                        <li><i class="bi bi-check-circle text-success"></i> Development of database applications and management systems</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Custom software for corporate and public sector needs</li>
+                        <li><i class="bi bi-check-circle text-success"></i> Integration and support for seamless operation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action Section -->
+        <section id="cta" class="cta mt-5">
+            <div class="container" data-aos="zoom-in">
+                <div class="text-center">
+                    <h3>Discover How We Can Help You</h3>
+                    <p>Explore the unique benefits and innovative solutions we offer. Reach out today to learn more about how we can assist in achieving your goals.</p>
+                    <a class="cta-btn btn btn-primary" href="{% url 'contact' %}">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</section><!-- End Learn More Section -->
+
+{% endblock %}

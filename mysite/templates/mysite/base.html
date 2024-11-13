@@ -1,0 +1,229 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{% block title %}InnoHub Liberia{% endblock %}</title>
+  <meta content="Leading innovation and growth in Liberia" name="description">
+  <meta content="InnoHub Liberia, innovation, growth, business" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/logo.ico' %}" rel="icon">
+  <link href="{% static 'img/logo.ico' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600|Roboto:300,400,700" rel="stylesheet">
+
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #444;
+      background-color: #f8f9fa;
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+    }
+
+    /* Navbar Styling */
+    #header {
+      background: linear-gradient(135deg, #0066cc, #003366); /* Updated gradient for a modern look */
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    #header .nav-link {
+      color: #f0f4f8;
+      font-weight: 500;
+    }
+    #header .nav-link:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    #header .logo a {
+      color: #f8f8f8;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Hero Section Styling */
+    .page-header-ui {
+      background: linear-gradient(135deg, rgba(0, 66, 138, 0.85), rgba(0, 35, 70, 0.85)), url('/path/to/hero-background.jpg');
+      background-size: cover;
+      color: #ffffff;
+      padding: 80px 0;
+      text-align: center;
+    }
+    .page-header-ui h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+    }
+    .page-header-ui p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #d0e1f2;
+    }
+
+    /* Footer Styling */
+    #footer {
+      background: #003366; /* Dark blue to align with navbar colors */
+      color: #f0f4f8;
+      padding: 60px 0;
+    }
+    #footer h3, #footer h4 {
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    #footer a {
+      color: #d0e1f2;
+      text-decoration: none;
+    }
+    #footer a:hover {
+      color: #ffffff;
+    }
+    .social-links a {
+      background: #2E2E2E; /* Dark background */
+      color: #FFD700; /* Gold icon color */
+      border-radius: 50%;
+      padding: 10px;
+      margin-right: 10px;
+      transition: 0.3s;
+      font-size: 1.2em;
+    }
+    .social-links a:hover {
+      background: #333333; /* Slightly lighter dark background on hover */
+      color: #FFC107; /* Brighter gold on hover */
+    }
+  </style>
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Custom Main CSS -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo me-auto"><a href="{% url 'home' %}">InnoHub Liberia</a></h1>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="{% url 'home' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'services' %}">Services</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'portfolio-list' %}">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'team' %}">Team</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
+          <li class="dropdown"><li class="dropdown">
+            <a href="#"><span>Resources</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{% url 'fnq' %}">Frequently Ask Questions</a></li>
+              <li class="dropdown">
+                <a href="{% url 'documents' %}"><span>Upload Documents</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="{% url 'school' %}">Reports</a></li>
+                  <li><a href="{% url 'business' %}">Presentations</a></li>
+                  <li><a href="{% url 'hospital' %}">Lectures</a></li>
+                  <li><a href="{% url 'recreation' %}">Publications</a></li>
+                  <li><a href="{% url 'resort' %}">Others</a></li>
+                </ul>
+              </li>
+              <li><a href="{% url 'press' %}">News and Events</a></li>
+              <li><a href="{% url 'dash' %}">Dashboard</a></li>
+              <li><a href="{% url 'buy' %}">Buy and Sell</a></li>
+              <li><a href="{% url 'directory' %}">Directory</a></li>
+              <li><a href="{% url 'resume' %}">Documents</a></li>
+              <li><a href="{% url 'testimonials' %}">Testimonials</a></li>
+            </ul>
+          </li>
+            <li><a class="nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
+          <li><a class="getstarted scrollto btn btn-outline-light ms-2" href="{% url 'about' %}">Get Started</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main" class="pt-5 mt-5">
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-newsletter text-center">
+      <h4>Join Our Newsletter</h4>
+      <p>Stay updated with insights, news, and exclusive offers.</p>
+      <form action="{% url 'newsletter_signup' %}" method="post" class="d-flex justify-content-center">
+        {% csrf_token %}
+        <input type="email" name="email" class="form-control w-50" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary ms-2">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 footer-contact">
+          <h3>InnoHub Liberia</h3>
+          <p>Old CID Road, Mamba Point<br> Monrovia, Liberia<br><strong>Phone:</strong> +231 888757477<br><strong>Email:</strong> info@innohubliberia.com</p>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home' %}">Home</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about' %}">About</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'services' %}">Services</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact' %}">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Research and Consultancy</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Data Analytics and Reporting</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">STEM Education Promotion</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Follow Us</h4>
+          <p>Connect on social media!</p>
+          <div class="social-links mt-3">
+            <a href="https://twitter.com/Innohublib" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="https://facebook.com/akesselly" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="https://instagram.com/altonv.kesselly" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="https://linkedin.com/company/innohub-liberia" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container text-center mt-3">
+      <small>&copy; 2024 InnoHub Liberia. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+</html>
